@@ -1,1 +1,124 @@
-/* Add styles here */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --primary-color: #4a90e2;
+    --primary-hover: #357abd;
+    --border-color: #ddd;
+    --ball-bg: #f0f0f0;
+    --ball-text: #333;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f8f9fa;
+    --card-bg: #2d2d2d;
+    --primary-color: #64b5f6;
+    --primary-hover: #90caf9;
+    --border-color: #444;
+    --ball-bg: #444;
+    --ball-text: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.btn-theme {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.lotto-results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lotto-set {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--ball-bg);
+    color: var(--ball-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+}
+
+.ball.color1 { background-color: #fbc400; color: #fff; border: none; }
+.ball.color2 { background-color: #69c8f2; color: #fff; border: none; }
+.ball.color3 { background-color: #ff7272; color: #fff; border: none; }
+.ball.color4 { background-color: #aaa; color: #fff; border: none; }
+.ball.color5 { background-color: #b0d840; color: #fff; border: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
