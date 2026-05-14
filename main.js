@@ -4,6 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
+    // 탭 전환 기능
+    const navItems = document.querySelectorAll('.nav-item');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const tabName = item.dataset.tab;
+
+            // 1. 모든 네비게이션 아이템 비활성화
+            navItems.forEach(nav => nav.classList.remove('active'));
+            // 2. 모든 컨텐츠 숨기기
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // 3. 클릭된 아이템 활성화
+            item.classList.add('active');
+            // 4. 대상 컨텐츠 보여주기
+            const targetContent = document.getElementById(tabName);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+            
+            // 페이지 상단으로 이동
+            window.scrollTo(0, 0);
+        });
+    });
+
     // 테마 토글 기능
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
@@ -16,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 로또 번호 생성 기능
     generateBtn.addEventListener('click', () => {
-        lottoContainer.innerHTML = ''; // 기존 번호 삭제
+        lottoContainer.innerHTML = ''; 
         
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 5; i++) {
             const lottoSet = generateLottoNumbers();
             displayLottoSet(lottoSet);
         }
@@ -44,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ball.className = 'ball';
             ball.textContent = num;
             
-            // 번호 범위에 따른 색상 지정
             if (num <= 10) ball.classList.add('color1');
             else if (num <= 20) ball.classList.add('color2');
             else if (num <= 30) ball.classList.add('color3');

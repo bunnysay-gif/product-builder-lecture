@@ -12,34 +12,58 @@
             <h1>로또 번호 생성기</h1>
             <button id="theme-toggle" class="btn-theme">다크 모드</button>
         </header>
+
+        <!-- 상단 탭 네비게이션 -->
+        <nav class="top-nav">
+            <button class="nav-item active" data-tab="lotto">
+                <span class="nav-icon">🍀</span>
+                <span class="nav-label">로또 번호</span>
+            </button>
+            <button class="nav-item" data-tab="inquiry">
+                <span class="nav-icon">✉️</span>
+                <span class="nav-label">제휴 문의</span>
+            </button>
+        </nav>
         
         <main>
-            <div class="controls">
-                <button id="generate-btn" class="btn-primary">번호 생성하기</button>
-            </div>
-            
-            <div id="lotto-container" class="lotto-results">
-                <!-- 번호 세트가 여기에 생성됩니다 -->
+            <!-- 로또 탭 컨텐츠 -->
+            <div id="lotto" class="tab-content active">
+                <div class="hero-section">
+                    <p class="subtitle">행운의 번호를 확인해보세요!</p>
+                </div>
+                <div class="controls">
+                    <button id="generate-btn" class="btn-primary">번호 생성하기</button>
+                </div>
+                
+                <div id="lotto-container" class="lotto-results">
+                    <div class="empty-state">
+                        <p>버튼을 눌러 번호를 생성하세요</p>
+                    </div>
+                </div>
             </div>
 
-            <section class="partnership">
-                <h2>제휴 문의</h2>
-                <form action="https://formspree.io/f/meenngjg" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">성함/기업명</label>
-                        <input type="text" id="name" name="name" required placeholder="이름 또는 기업명을 입력하세요">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">이메일</label>
-                        <input type="email" id="email" name="_replyto" required placeholder="연락받으실 이메일을 입력하세요">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">문의 내용</label>
-                        <textarea id="message" name="message" required placeholder="제휴 문의 내용을 적어주세요"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">문의하기</button>
-                </form>
-            </section>
+            <!-- 제휴 문의 탭 컨텐츠 -->
+            <div id="inquiry" class="tab-content">
+                <section class="partnership">
+                    <h2>제휴 문의</h2>
+                    <p class="section-desc">광고 및 제휴 문의는 아래 양식을 작성해주세요.</p>
+                    <form action="https://formspree.io/f/meenngjg" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">성함/기업명</label>
+                            <input type="text" id="name" name="name" required placeholder="이름 또는 기업명을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="_replyto" required placeholder="연락받으실 이메일을 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">문의 내용</label>
+                            <textarea id="message" name="message" required placeholder="제휴 문의 내용을 적어주세요"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">문의하기</button>
+                    </form>
+                </section>
+            </div>
         </main>
     </div>
     <script src="main.js"></script>
